@@ -6,8 +6,8 @@ Dental Enumeration and Diagnosis on Panoramic X-rays Challenge
   
 * [What is DENTEX?](#what-is-dentex)
 * [Desired Output of the Challenge](#desired-output-of-the-challenge)
-* [Citing Us](#citing-us)
 * [Data](#data)
+* [Citing Us](#citing-us)
 * [License](#license)
 * [Contact](#contact)
   
@@ -27,12 +27,6 @@ DENTEX aims to provide insights into the effectiveness of AI in dental radiology
 ![Fig. 1. A desired output from a final algorithm, illustrating well-defined bounding boxes for each abnormal tooth. The corresponding quadrant (Q), enumeration (N), and diagnosis (D) labels are also displayed.](figures/output.png)
 *Fig. 1. A desired output from a final algorithm, illustrating well-defined bounding boxes for each abnormal tooth. The corresponding quadrant (Q), enumeration (N), and diagnosis (D) labels are also displayed.*
 
-## Citing Us
-
-If you use HierarchicalDet, we would appreciate references to the following papers. 
-
-1. **Ibrahim Ethem Hamamci, Sezgin Er, Enis Simsar, Anjany Sekuboyina, Mustafa Gundogar, Bernd Stadlinger, Albert Mehl, Bjoern Menze., Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays, 2023.**<br  />Pre-print: https://arxiv.org/abs/2303.06500
-
 
 ## Data
 ![Fig. 2. The hierarchical organization of the annotated data. The data is structured into three levels: (a) quadrant-only for quadrant detection, (b) quadrant-enumeration for tooth detection, and (c) quadrant-enumeration-diagnosis for abnormal tooth detection.](figures/data.png)
@@ -41,6 +35,13 @@ If you use HierarchicalDet, we would appreciate references to the following pape
 * The dataset will be released later as part of [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/). 
 
 **Note**: The data used and annotations are fully identical to the one that will be used for the MICCAI challenge. Therefore, our work also serves as a baseline method for [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/) which will be held at MICCAI 2023.
+
+## Citing Us
+
+If you use HierarchicalDet, we would appreciate references to the following papers. 
+
+1. **Ibrahim Ethem Hamamci, Sezgin Er, Enis Simsar, Anjany Sekuboyina, Mustafa Gundogar, Bernd Stadlinger, Albert Mehl, Bjoern Menze., Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays, 2023.**<br  />Pre-print: https://arxiv.org/abs/2303.06500
+
 
 ## License
 The data is provided under the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/), making it fully open-sourced.
