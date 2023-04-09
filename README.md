@@ -32,13 +32,13 @@ DENTEX aims to provide insights into the effectiveness of AI in dental radiology
 ![Fig. 2. The hierarchical organization of the annotated data. The data is structured into three levels: (a) quadrant-only for quadrant detection, (b) quadrant-enumeration for tooth detection, and (c) quadrant-enumeration-diagnosis for abnormal tooth detection.](figures/data.png)
 *Fig. 2. The hierarchical organization of the annotated data. The data is structured into three levels: (a) quadrant-only for quadrant detection, (b) quadrant-enumeration for tooth detection, and (c) quadrant-enumeration-diagnosis for abnormal tooth detection.*
 
-* The dataset will be released later as part of [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/). 
+* The dataset is used for [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/). 
 
-**Note**: The data used and annotations are fully identical to the one that will be used for the MICCAI challenge. Therefore, our work also serves as a baseline method for [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/) which will be held at MICCAI 2023.
+**Note**: The datasets are fully identical to the data used for our baseline method named as HierarchicalDet. Therefore, please visit [HierarchicalDet (iffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays)](https://github.com/ibrahimethemhamamci/HierarchicalDet) repo for more info.
 
 ## Citing Us
 
-If you use HierarchicalDet, we would appreciate references to the following papers. 
+If you use DENTEX, we would appreciate references to the following papers. 
 
 1. **Ibrahim Ethem Hamamci, Sezgin Er, Enis Simsar, Anjany Sekuboyina, Mustafa Gundogar, Bernd Stadlinger, Albert Mehl, Bjoern Menze., Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays, 2023.**<br  />Pre-print: https://arxiv.org/abs/2303.06500
 
