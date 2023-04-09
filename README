@@ -1,5 +1,5 @@
-DENTEX: Diffusion Based Hierarchical Learning for Multi-Label Abnormal Tooth Detection with Dental Enumeration and Diagnosis on Panoramic X-rays Challenge
-
+# HierarchicalDet: Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays
+Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays
 
 
 <details><summary>Table of Contents</summary><p>
@@ -15,7 +15,7 @@ DENTEX: Diffusion Based Hierarchical Learning for Multi-Label Abnormal Tooth Det
 </p></details><p></p>
 
 ## Our Framework
-![Our method relies on a hierarchical learning approach utilizing a combi- nation of multi-label detection, bounding box manipulation, and weight transfer.](figures/flowchart.png)
+![Our method relies on a hierarchical learning approach utilizing a combination of multi-label detection, bounding box manipulation, and weight transfer.](figures/data.png)
 *Our Diffusion-Based Object Detection method relies on a hierarchical learning approach utilizing a combination of multi-label detection, bounding box manipulation and weight transfer.*
 ## Output of the Model
 ![Output from our final model showing well-defined boxes for diseased teeth with corresponding quadrant (Q), enumeration (N), and diagnosis (D) labels., etc.](figures/output.png)
@@ -49,3 +49,5 @@ The rest of this repository is under the [MIT License](https://choosealicense.co
 
 ## Contact
 For queries and issues not fit for a github issue, please email [Ibrahim Ethem Hamamci](mailto:ibrahim.hamamci@uzh.ch).
+
+
