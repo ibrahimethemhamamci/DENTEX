@@ -60,7 +60,6 @@ To ensure a fair comparison of methods, participants are not permitted to use ad
 
 The DENTEX provides three hierarchically annotated datasets that facilitate various dental detection tasks: (1) quadrant-only for quadrant detection, (2) quadrant-enumeration for tooth detection, and (3) quadrant-enumeration-diagnosis for abnormal tooth detection. Although it may seem redundant to provide a quadrant detection dataset, it is crucial for utilizing the FDI Numbering System. The FDI system is a globally-used system that assigns each quadrant of the mouth a number from 1 through 4. The top right is 1, the top left is 2, the bottom left is 3, and the bottom right is 4. Then each of the eight teeth and each molar are numbered 1 through 8. The 1 starts at the front middle tooth, and the numbers rise the farther back we go. So for example, the back tooth on the lower left side would be 48 according to FDI notation, which means quadrant 4, number 8. Therefore, the quadrant segmentation dataset can significantly simplify the dental enumeration task, even though evaluations will be made only on the fully annotated third data.
 
-All annotations in the DENTEX dataset are meticulously crafted by a team of dental experts. Specifically, each image is annotated by a last-year dental student, and the annotations are further verified and corrected by one of three expert dentists with over 15 years of experience. Therefore, the annotated data in DENTEX is of the highest quality and accuracy, which makes it a valuable resource for dental research.
 
 ## Citing Us
 
