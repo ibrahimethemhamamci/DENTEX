@@ -36,11 +36,11 @@ The DENTEX dataset comprises panoramic dental X-rays obtained from three differe
 
 To enable effective use of the FDI system, the dataset is hierarchically organized into three types of data;
 
-   (a) 693 X-rays labeled for quadrant detection and quadrant classes only,
+ *  (a) 693 X-rays labeled for quadrant detection and quadrant classes only,
 
-   (b) 634 X-rays labeled for tooth detection with quadrant and tooth enumeration classes,
+*   (b) 634 X-rays labeled for tooth detection with quadrant and tooth enumeration classes,
 
-   (c) 1005 X-rays fully labeled for abnormal tooth detection with quadrant, tooth enumeration, and diagnosis classes.
+ *  (c) 1005 X-rays fully labeled for abnormal tooth detection with quadrant, tooth enumeration, and diagnosis classes.
 
 The diagnosis class includes four specific categories: caries, deep caries, periapical lesions, and impacted teeth. An additional 1571 unlabeled X-rays are provided for pre-training. 
 
