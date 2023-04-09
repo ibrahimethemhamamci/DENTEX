@@ -46,20 +46,17 @@ The diagnosis class includes four specific categories: caries, deep caries, peri
 
 * The dataset is used for [DENTEX (Dental Enumeration and Diagnosis on Panoramic X-rays Challenge)](https://dentex.grand-challenge.org/). 
 
-**Note**: The datasets are fully identical to the data used for our baseline method named as HierarchicalDet. Therefore, please visit [HierarchicalDet (Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays)](https://github.com/ibrahimethemhamamci/HierarchicalDet) repo for more info.
-
 **Data Split for Evaluation and Training**
 
 The DENTEX 2023 dataset comprises three types of data: (a) partially annotated quadrant data, (b) partially annotated quadrant-enumeration data, and (c) fully annotated quadrant-enumeration-diagnosis data. The first two types of data are intended for training and development purposes, while the third type is used for training and evaluations.
 
 To comply with standard machine learning practices, the fully annotated third dataset, consisting of 1005 panoramic X-rays, is partitioned into training, validation, and testing subsets, comprising 705, 50, and 250 images, respectively. Ground truth labels are provided only for the training data, while the validation data is provided without associated ground truth, and the testing data is kept hidden from participants.
 
-To ensure a fair comparison of methods, participants are not permitted to use additional public and/or private data to extend the provided DENTEX data or pre-train models on such datasets. However, they may use additional public and/or private data for scientific publication purposes, as long as they report their results using only the DENTEX2023 dataset to discuss potential differences.
-
 **Annotation Protocol**
 
 The DENTEX provides three hierarchically annotated datasets that facilitate various dental detection tasks: (1) quadrant-only for quadrant detection, (2) quadrant-enumeration for tooth detection, and (3) quadrant-enumeration-diagnosis for abnormal tooth detection. Although it may seem redundant to provide a quadrant detection dataset, it is crucial for utilizing the FDI Numbering System. The FDI system is a globally-used system that assigns each quadrant of the mouth a number from 1 through 4. The top right is 1, the top left is 2, the bottom left is 3, and the bottom right is 4. Then each of the eight teeth and each molar are numbered 1 through 8. The 1 starts at the front middle tooth, and the numbers rise the farther back we go. So for example, the back tooth on the lower left side would be 48 according to FDI notation, which means quadrant 4, number 8. Therefore, the quadrant segmentation dataset can significantly simplify the dental enumeration task, even though evaluations will be made only on the fully annotated third data.
 
+**Note**: The datasets are fully identical to the data used for our baseline method named as HierarchicalDet. Therefore, please visit [HierarchicalDet (Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays)](https://github.com/ibrahimethemhamamci/HierarchicalDet) repo for more info.
 
 ## Citing Us
 
