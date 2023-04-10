@@ -1,4 +1,4 @@
-# DENTEX CHALLENGE 2023 
+# DENTEX CHALLENGE 2023: Dental Enumeration and Diagnosis on Panoramic X-rays Challenge
 Dental Enumeration and Diagnosis on Panoramic X-rays Challenge
 
 
