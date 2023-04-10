@@ -58,8 +58,8 @@ The DENTEX provides three hierarchically annotated datasets that facilitate vari
 
 **How to Access Data**
 
-Please visit [the Zenodo page](https://zenodo.org/record/7812323#.ZDQE1uxBwUG) to access all the training and validation data related to the challenge.
 
+Please visit [the Zenodo page](https://zenodo.org/record/7812323#.ZDQE1uxBwUG) to access all the training and validation data related to the challenge.
 
 **Note**: The datasets are fully identical to the data used for our baseline method named as HierarchicalDet. Therefore, please visit [HierarchicalDet (Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays)](https://github.com/ibrahimethemhamamci/HierarchicalDet) repo for more info.
 
