@@ -66,8 +66,21 @@ Please visit [the Zenodo page](https://zenodo.org/record/7812323#.ZDQE1uxBwUG) t
 ## Citing Us
 
 If you use DENTEX, we would appreciate references to the following papers. 
+```
+1. @article{hamamci2023diffusion,
+  title={Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays},
+  author={Hamamci, Ibrahim Ethem and Er, Sezgin and Simsar, Enis and Sekuboyina, Anjany and Gundogar, Mustafa and Stadlinger, Bernd and Mehl, Albert and Menze, Bjoern},
+  journal={arXiv preprint arXiv:2303.06500},
+  year={2023}
+}
 
-1. **Ibrahim Ethem Hamamci, Sezgin Er, Enis Simsar, Anjany Sekuboyina, Mustafa Gundogar, Bernd Stadlinger, Albert Mehl, Bjoern Menze., Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays, 2023.**<br  />Pre-print: https://arxiv.org/abs/2303.06500
+2. @article{hamamci2023dentex,
+  title={DENTEX: An Abnormal Tooth Detection with Dental Enumeration and Diagnosis Benchmark for Panoramic X-rays},
+  author={Hamamci, Ibrahim Ethem and Er, Sezgin and Simsar, Enis and Yuksel, Atif Emre and Gultekin, Sadullah and Ozdemir, Serife Damla and Yang, Kaiyuan and Li, Hongwei Bran and Pati, Sarthak and Stadlinger, Bernd and others},
+  journal={arXiv preprint arXiv:2305.19112},
+  year={2023}
+}
+```
 
 
 ## License
