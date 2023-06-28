@@ -1,0 +1,30 @@
+_BASE_: "Base-DiffusionDet.yaml"
+MODEL:
+  WEIGHTS: "pretrained_model/model_final.pth"
+  BACKBONE:
+    NAME: build_swintransformer_backbone
+  SWIN:
+    SIZE: B-22k
+  FPN:
+    IN_FEATURES: [ "swin0", "swin1", "swin2", "swin3" ]
+  ROI_HEADS:
+    NUM_CLASSES: 32  # 
+  DiffusionDet:
+    NUM_PROPOSALS: 500
+    NUM_CLASSES: 32  # 
+    USE_FED_LOSS: True  # 
+DATASETS:  # 
+  TRAIN: ("custom_train",)
+  TEST: ("custom_validation",)
+DATALOADER:
+  SAMPLER_TRAIN: "RepeatFactorTrainingSampler"
+  REPEAT_THRESHOLD: 0.001
+SOLVER:
+  STEPS: (210000, 250000)
+  MAX_ITER: 30000
+INPUT:
+  CROP:
+    ENABLED: True
+  FORMAT: "RGB"
+TEST:  # LVIS
+  EVAL_PERIOD: 1000  # disable eval during train since long time
