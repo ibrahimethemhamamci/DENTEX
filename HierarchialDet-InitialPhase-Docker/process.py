@@ -1,10 +1,10 @@
 import os
 import json
-from detectron2.config import get_cfg
-from hierarchialdet import DiffusionDetDatasetMapper, add_diffusiondet_config, DiffusionDetWithTTA
-from hierarchialdet.util.model_ema import add_model_ema_configs, may_build_model_ema, may_get_ema_checkpointer, EMAHook, \
-    apply_model_ema_and_restore, EMADetectionCheckpointer
-from hierarchialdet.predictor import VisualizationDemo
+# from detectron2.config import get_cfg
+# from hierarchialdet import DiffusionDetDatasetMapper, add_diffusiondet_config, DiffusionDetWithTTA
+# from hierarchialdet.util.model_ema import add_model_ema_configs, may_build_model_ema, may_get_ema_checkpointer, EMAHook, \
+#     apply_model_ema_and_restore, EMADetectionCheckpointer
+# from hierarchialdet.predictor import VisualizationDemo
 import argparse
 import SimpleITK as sitk
 import glob
@@ -63,57 +63,57 @@ list_ids = [
                           {"height": 1504, "width": 2872, "id": 50, "file_name": "val_0.png"},
                       ]
 
-def custom_format_output(outputs, img_ids):
-    boxes = []
-    for k, instances in enumerate(outputs):
-        for i in range(len(instances)):
-            instance = instances[i]
-            bbox_coords = instance.pred_boxes.tensor[0].tolist()
-
-            category_id_1 = instance.pred_classes_1[0].item()
-            category_id_2 = instance.pred_classes_2[0].item()
-            category_id_3 = instance.pred_classes_3[0].item()
-            img_id = img_ids[k]
-            box = {
-                "name": f"{category_id_1} - {category_id_2} - {category_id_3}",
-                "corners": [
-                    [bbox_coords[0], bbox_coords[1], img_id],
-                    [bbox_coords[0], bbox_coords[3], img_id],
-                    [bbox_coords[2], bbox_coords[1], img_id],
-                    [bbox_coords[2], bbox_coords[3], img_id]
-                ],
-                "probability": instance.scores[0].item(),
-            }
-            boxes.append(box)
-
-        custom_annotations={
-        "name": "Regions of interest",
-        "type": "Multiple 2D bounding boxes",
-        "boxes": boxes,
-        "version": { "major": 1, "minor": 0 }
-        }
-    return custom_annotations
-
-
-def coco_format_output(outputs,img_ids):
-    coco_annotations = []
-    for k, instances in enumerate(outputs):
-        for i in range(len(instances)):
-            instance = instances[i]
-            bbox_coords = instance.pred_boxes.tensor[0].tolist()
-            bbox_coords[2] = bbox_coords[2] - bbox_coords[0]
-            bbox_coords[3] = bbox_coords[3] - bbox_coords[1]
-
-            coco_annotation = {
-                            "image_id": img_ids[k],
-                            "category_id_1": instance.pred_classes_1[0].item(),
-                            "category_id_2": instance.pred_classes_2[0].item(),
-                            "category_id_3": instance.pred_classes_3[0].item(),
-                            "bbox": bbox_coords,
-                            "score": instance.scores[0].item(),
-                        }
-            coco_annotations.append(coco_annotation)
-    return coco_annotations
+# def custom_format_output(outputs, img_ids):
+#     boxes = []
+#     for k, instances in enumerate(outputs):
+#         for i in range(len(instances)):
+#             instance = instances[i]
+#             bbox_coords = instance.pred_boxes.tensor[0].tolist()
+#
+#             category_id_1 = instance.pred_classes_1[0].item()
+#             category_id_2 = instance.pred_classes_2[0].item()
+#             category_id_3 = instance.pred_classes_3[0].item()
+#             img_id = img_ids[k]
+#             box = {
+#                 "name": f"{category_id_1} - {category_id_2} - {category_id_3}",
+#                 "corners": [
+#                     [bbox_coords[0], bbox_coords[1], img_id],
+#                     [bbox_coords[0], bbox_coords[3], img_id],
+#                     [bbox_coords[2], bbox_coords[1], img_id],
+#                     [bbox_coords[2], bbox_coords[3], img_id]
+#                 ],
+#                 "probability": instance.scores[0].item(),
+#             }
+#             boxes.append(box)
+#
+#         custom_annotations={
+#         "name": "Regions of interest",
+#         "type": "Multiple 2D bounding boxes",
+#         "boxes": boxes,
+#         "version": { "major": 1, "minor": 0 }
+#         }
+#     return custom_annotations
+#
+#
+# def coco_format_output(outputs,img_ids):
+#     coco_annotations = []
+#     for k, instances in enumerate(outputs):
+#         for i in range(len(instances)):
+#             instance = instances[i]
+#             bbox_coords = instance.pred_boxes.tensor[0].tolist()
+#             bbox_coords[2] = bbox_coords[2] - bbox_coords[0]
+#             bbox_coords[3] = bbox_coords[3] - bbox_coords[1]
+#
+#             coco_annotation = {
+#                             "image_id": img_ids[k],
+#                             "category_id_1": instance.pred_classes_1[0].item(),
+#                             "category_id_2": instance.pred_classes_2[0].item(),
+#                             "category_id_3": instance.pred_classes_3[0].item(),
+#                             "bbox": bbox_coords,
+#                             "score": instance.scores[0].item(),
+#                         }
+#             coco_annotations.append(coco_annotation)
+#     return coco_annotations
 
 
 def get_parser():
@@ -151,17 +151,17 @@ class Hierarchialdet:
 
     def setup(self):
         args = get_parser().parse_args()
-        self.cfg = get_cfg()
-        add_diffusiondet_config(self.cfg)
-        add_model_ema_configs(self.cfg)
-        self.cfg.merge_from_file("/opt/app/configs/diffdet.custom.swinbase.nonpretrain.yaml")
-        self.cfg.MODEL.WEIGHTS = "/opt/app/pretrained_model/model_final.pth"
-        self.cfg.merge_from_list(args.opts)
-        self.cfg.MODEL.RETINANET.SCORE_THRESH_TEST = args.confidence_threshold
-        self.cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = args.confidence_threshold
-        self.cfg.MODEL.PANOPTIC_FPN.COMBINE.INSTANCES_CONFIDENCE_THRESH = args.confidence_threshold
-        self.cfg.freeze()
-        self.demo = VisualizationDemo(self.cfg, k=2)
+        # self.cfg = get_cfg()
+        # add_diffusiondet_config(self.cfg)
+        # add_model_ema_configs(self.cfg)
+        # self.cfg.merge_from_file("/opt/app/configs/diffdet.custom.swinbase.nonpretrain.yaml")
+        # self.cfg.MODEL.WEIGHTS = "/opt/app/pretrained_model/model_final.pth"
+        # self.cfg.merge_from_list(args.opts)
+        # self.cfg.MODEL.RETINANET.SCORE_THRESH_TEST = args.confidence_threshold
+        # self.cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = args.confidence_threshold
+        # self.cfg.MODEL.PANOPTIC_FPN.COMBINE.INSTANCES_CONFIDENCE_THRESH = args.confidence_threshold
+        # self.cfg.freeze()
+        # self.demo = VisualizationDemo(self.cfg, k=2)
 
     def process(self):
         self.setup()
@@ -175,17 +175,38 @@ class Hierarchialdet:
         image = sitk.ReadImage(file_path)
         image_array = sitk.GetArrayFromImage(image)
         print("test..")
-        for k in range(image_array.shape[2]):
-            image_name = "val_{}.png".format(k)
-            predictions, _ = self.demo.run_on_image(image_array[:,:,k,:])
-            instances = predictions["instances"]
-            all_outputs.append(instances)
-            for input_img in list_ids:
-                if input_img["file_name"] == image_name:
-                    img_id = input_img["id"]
-            img_ids.append(img_id)
-        coco_annotations = custom_format_output(all_outputs,img_ids)
+        # for k in range(image_array.shape[2]):
+        #     image_name = "val_{}.png".format(k)
+        #     predictions, _ = self.demo.run_on_image(image_array[:,:,k,:])
+        #     instances = predictions["instances"]
+        #     all_outputs.append(instances)
+        #     for input_img in list_ids:
+        #         if input_img["file_name"] == image_name:
+        #             img_id = input_img["id"]
+        #     img_ids.append(img_id)
+        # coco_annotations = custom_format_output(all_outputs,img_ids)
+        coco_annotations = {
+               "name": "Regions of interest",
+               "type": "Multiple 2D bounding boxes",
+               "boxes": [
+                        {
+                            "name": "1 - 7 - 3",
+                            "corners": [[757.1516723632812, 801.6741943359375, 50],
+                                          [757.1516723632812, 1041.33056640625, 50],
+                                          [1056.576171875, 1041.33056640625, 50],
+                                          [1056.576171875, 801.6741943359375, 50]],
+                            "probability": 0.95
+                        },
 
+                        {
+                            "name": "1 - 7 - 3",
+                            "corners": [[757.1516723632812, 801.6741943359375, 49],
+                                          [757.1516723632812, 1041.33056640625, 49],
+                                          [1056.576171875, 1041.33056640625, 49],
+                                          [1056.576171875, 801.6741943359375, 49]],
+                            "probability": 0.95
+                        }],
+               "version": {"major": 1, "minor": 0}}
         output_file = "/output/abnormal-teeth-detection.json"
         with open(output_file, "w") as f:
             json.dump(coco_annotations, f)
