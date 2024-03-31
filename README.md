@@ -92,7 +92,3 @@ The data is provided under the [CC BY-SA 4.0 License](https://creativecommons.or
 
 The rest of this repository is under the [MIT License](https://choosealicense.com/licenses/mit/).
 
-
-## Contact
-For queries and issues not fit for a github issue, please email [Ibrahim Ethem Hamamci](mailto:ibrahim.hamamci@uzh.ch).
-
