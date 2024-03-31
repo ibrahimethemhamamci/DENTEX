@@ -23,7 +23,7 @@ The challenge provides three types of hierarchically annotated data and addition
 
 DENTEX aims to provide insights into the effectiveness of AI in dental radiology analysis and its potential to improve dental practice by comparing frameworks that simultaneously point out abnormal teeth with dental enumeration and associated diagnosis on panoramic dental X-rays.
 
-*Please visit our [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/) which is held at MICCAI2023.*
+*Please visit the webpage of [DENTEX (Dental Enumeration and Diagnosis on Panoramic X- rays Challenge)](https://dentex.grand-challenge.org/) which is held at MICCAI2023.*
 
 ## Desired Output of the Challenge
 ![Fig. 1. A desired output from a final algorithm, illustrating well-defined bounding boxes for each abnormal tooth. The corresponding quadrant (Q), enumeration (N), and diagnosis (D) labels are also displayed.](figures/output.png)
