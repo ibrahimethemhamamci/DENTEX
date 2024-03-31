@@ -13,6 +13,8 @@ Dental Enumeration and Diagnosis on Panoramic X-rays Challenge
   
 </p></details><p></p>
 
+*Now, all the data related to DENTEX (including test and validation sets) are available on the [Hugging Face page](https://huggingface.co/datasets/ibrahimhamamci/DENTEX).*
+
 
 ## What is DENTEX?
 We present the Dental Enumeration and Diagnosis on Panoramic X-rays Challenge (DENTEX), organized in conjunction with the International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI) in 2023. The primary objective of this challenge is to develop algorithms that can accurately detect abnormal teeth with dental enumeration and associated diagnosis. This not only aids in accurate treatment planning but also helps practitioners carry out procedures with a low margin of error.
@@ -59,7 +61,7 @@ The DENTEX provides three hierarchically annotated datasets that facilitate vari
 **How to Access Data**
 
 
-Please visit [the Zenodo page](https://zenodo.org/record/7812323#.ZDQE1uxBwUG) to access all the training and validation data related to the challenge.
+Please visit [the Hugging Face page](https://huggingface.co/datasets/ibrahimhamamci/DENTEX) to access all the training and validation data related to the challenge.
 
 **Note**: The datasets are fully identical to the data used for our baseline method named as HierarchicalDet. Therefore, please visit [HierarchicalDet (Diffusion-Based Hierarchical Multi-Label Object Detection to Analyze Panoramic Dental X-rays)](https://github.com/ibrahimethemhamamci/HierarchicalDet) repo for more info.
 
